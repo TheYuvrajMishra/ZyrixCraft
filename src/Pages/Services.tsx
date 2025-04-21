@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Card from "../Components/Card";
 import { FaCode, FaPalette, FaMobile, FaServer, FaDatabase, FaShieldAlt } from "react-icons/fa";
@@ -205,7 +205,7 @@ const Services = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}

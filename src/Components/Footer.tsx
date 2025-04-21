@@ -1,28 +1,6 @@
-import React from 'react';
-import { FaInstagram, FaDiscord, FaTwitter, FaTiktok, FaHeart, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaInstagram, FaDiscord, FaTwitter, FaTiktok, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
-
-    const footerLinks = {
-        company: [
-            { name: 'About', href: '#' },
-            { name: 'Projects', href: '#' },
-            { name: 'Team', href: '#' },
-            { name: 'Contact', href: '#' }
-        ],
-        social: [
-            { name: 'Instagram', href: '#', icon: '📸' },
-            { name: 'Twitter', href: '#', icon: '🐦' },
-            { name: 'Discord', href: '#', icon: '💬' },
-            { name: 'TikTok', href: '#', icon: '🎵' }
-        ],
-        legal: [
-            { name: 'Privacy Policy', href: '#' },
-            { name: 'Terms of Service', href: '#' }
-        ]
-    };
-
     return (
         <footer className="relative py-12 overflow-hidden">
             {/* Gradient divider */}

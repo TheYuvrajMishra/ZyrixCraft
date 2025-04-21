@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import HeroSection from './Pages/HeroSection'
@@ -7,8 +7,8 @@ import Contact from './Pages/Contact';
 import Footer from './Components/Footer';
 import MouseTrailer from './Components/MouseTrailer';
 import SEO from './Components/SEO';
-import { siteMetadata } from './config/metadata';
-import { initPerformanceOptimizations, throttle } from './utils/performance';
+// import { siteMetadata } from './config/metadata';
+// import { initPerformanceOptimizations, throttle } from './utils/performance';
 // import GridShowcase from './Pages/GridShowcase'
 
 function App() {
