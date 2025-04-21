@@ -15,12 +15,12 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop Navbar */}
-            <div className="fixed z-50 top-10 w-full flex justify-center hidden md:flex">
+            <div className="fixed z-50 top-5 w-full flex justify-center hidden md:flex">
                 <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="relative flex items-center justify-between rounded-2xl px-6 py-3 overflow-hidden"
+                    className="relative flex items-center justify-between rounded-2xl px-6 py-1 overflow-hidden"
                 >
                     {/* Background layers */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-purple-950/75 to-black/90" />

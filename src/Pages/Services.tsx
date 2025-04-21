@@ -50,7 +50,7 @@ const Services = () => {
     {
       title: "Database Design",
       description: "Optimized database architecture and management solutions.",
-      imageUrl: "https://www.premiumuikits.com/wp-content/uploads/2021/04/rectangle-2_1592319385383.jpeg",
+      imageUrl: "https://www.aceinfoway.com/blog/wp-content/uploads/2020/03/best-database-to-work-with-in-2020.jpg",
       tags: ["MongoDB", "PostgreSQL", "Redis"],
       icon: FaDatabase,
       color: "from-yellow-500 to-amber-500"
