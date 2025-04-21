@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -7,12 +7,12 @@ const MouseTrailer = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isOverCard, setIsOverCard] = useState(false);
     const trailRef = useRef<HTMLDivElement>(null);
-    const rafRef = useRef<number>();
+    const rafRef = useRef<number | null>(null);
 
     // Optimized spring config for better performance
     const springConfig = {
         stiffness: 150,  // Reduced for better performance
-        damping: 15,     // Adjusted for smoother movement
+        damping: 7,     // Adjusted for smoother movement
         mass: 0.2        // Reduced for lighter feel
     };
     const x = useSpring(0, springConfig);
@@ -86,7 +86,7 @@ const MouseTrailer = () => {
                 >
                     {isOverCard && (
                         <motion.div
-                            initial={{ opacity: 0, rotate: 0 }}
+                            initial={{ opacity: 0, rotate: 45 }}
                             animate={{ opacity: 1, rotate: -45 }}
                             transition={{
                                 duration: 0.2,
