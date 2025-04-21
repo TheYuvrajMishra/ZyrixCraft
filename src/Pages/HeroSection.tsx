@@ -35,7 +35,7 @@ const HeroSection = () => {
                 Math.random() * window.innerHeight
               ],
               rotate: [0, 180, 360],
-              scale: [0, 1, 0]
+              scale: [0, 0.5, 0]
             }}
             transition={{
               duration: Math.random() * 5 + 5,
