@@ -8,12 +8,14 @@ import Footer from './Components/Footer';
 import MouseTrailer from './Components/MouseTrailer';
 import SEO from './Components/SEO';
 import { siteMetadata } from './config/metadata';
+import { initPerformanceOptimizations, throttle } from './utils/performance';
 // import GridShowcase from './Pages/GridShowcase'
 
 function App() {
   const smokeyRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
+  // Initialize performance optimizations
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;

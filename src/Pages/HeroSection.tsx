@@ -13,6 +13,49 @@ const HeroSection = () => {
         className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,0,255,0.1)_0%,black_100%)]"
       />
 
+      {/* Chaotic Neon Triangles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={`triangle-${i}`}
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              rotate: Math.random() * 360,
+              scale: 0
+            }}
+            animate={{
+              x: [
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth
+              ],
+              y: [
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight
+              ],
+              rotate: [0, 180, 360],
+              scale: [0, 1, 0]
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "linear",
+              times: [0, 0.5, 1]
+            }}
+            className="absolute w-0 h-0"
+            style={{
+              borderLeft: '20px solid transparent',
+              borderRight: '20px solid transparent',
+              borderBottom: '40px solid',
+              borderBottomColor: `rgba(${Math.random() * 255}, ${Math.random() * 100}, ${Math.random() * 255}, 0.2)`,
+              filter: 'blur(1px)',
+            }}
+          />
+        ))}
+      </div>
+
       {/* Neon Lines */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -44,7 +87,7 @@ const HeroSection = () => {
       />
 
       {/* Animated Particles */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(50)].map((_, i) => (
         <motion.div
           key={i}
           initial={{
@@ -63,6 +106,21 @@ const HeroSection = () => {
             ease: "linear"
           }}
           className="absolute w-1 h-1 bg-white/30 rounded-full"
+        />
+      ))}
+
+      {/* Glowing Orbs */}
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={`orb-${i}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 2, delay: i * 0.5, repeat: Infinity }}
+          className="absolute w-4 h-4 rounded-full"
+          style={{
+            top: `${20 + i * 30}%`,
+            left: `${20 + i * 25}%`,
+          }}
         />
       ))}
 

@@ -15,25 +15,32 @@ const Navbar = () => {
     return (
         <>
             {/* Desktop Navbar */}
-            <div className="fixed z-80 top-10 w-full flex justify-center hidden md:flex">
+            <div className="fixed z-50 top-10 w-full flex justify-center hidden md:flex">
                 <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="flex items-center justify-between bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg shadow-black/50 px-6 py-3"
+                    className="relative flex items-center justify-between rounded-2xl px-6 py-3 overflow-hidden"
                 >
+                    {/* Background layers */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-purple-950/75 to-black/90" />
+                    <div className="absolute inset-0 backdrop-blur-md" />
+                    <div className="absolute inset-0 bg-white/5" />
+                    <div className="absolute inset-0 border border-white/10 rounded-2xl" />
+
+                    {/* Content */}
                     <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="text-white/90 font-medium mr-20 text-lg tracking-wide"
+                        className="relative text-white/90 font-medium mr-20 text-lg tracking-wide"
                     >
                         ZyrixCraft
                     </motion.div>
-                    <div className="flex items-center space-x-2">
+                    <div className="relative flex items-center space-x-2">
                         {navItems.map((item) => (
                             <motion.button
                                 key={item.id}
                                 onClick={() => setActiveTab(item.id)}
-                                className="relative flex items-center justify-center p-3 rounded-xl transition-all duration-300 backdrop-blur-xl cursor-pointer"
+                                className="relative flex items-center justify-center p-3 rounded-xl transition-all duration-300 cursor-pointer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -70,9 +77,16 @@ const Navbar = () => {
                     initial={{ y: 100 }}
                     animate={{ y: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="bg-black/40 backdrop-blur-xl border-t border-white/10"
+                    className="relative"
                 >
-                    <div className="flex justify-around items-center h-16">
+                    {/* Background layers */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-purple-950/75 to-black/80" />
+                    <div className="absolute inset-0 backdrop-blur-md" />
+                    <div className="absolute inset-0 bg-white/5" />
+                    <div className="absolute inset-0 border-t border-white/10" />
+
+                    {/* Content */}
+                    <div className="relative flex justify-around items-center h-16">
                         {navItems.map((item) => (
                             <motion.button
                                 key={item.id}

@@ -6,8 +6,23 @@ const MouseTrailer = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
     const [isOverCard, setIsOverCard] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const trailRef = useRef<HTMLDivElement>(null);
     const rafRef = useRef<number | null>(null);
+
+    // Check if device is mobile or tablet
+    useEffect(() => {
+        const checkDevice = () => {
+            setIsMobile(window.innerWidth <= 1024);
+        };
+
+        checkDevice();
+        window.addEventListener('resize', checkDevice);
+
+        return () => {
+            window.removeEventListener('resize', checkDevice);
+        };
+    }, []);
 
     // Optimized spring config for better performance
     const springConfig = {
@@ -62,6 +77,11 @@ const MouseTrailer = () => {
         y.set(mousePosition.y);
     }, [mousePosition, x, y]);
 
+    // Don't render on mobile or tablet
+    if (isMobile) {
+        return null;
+    }
+
     return (
         <>
             {/* Main cursor - Simplified animations */}
@@ -86,7 +106,7 @@ const MouseTrailer = () => {
                 >
                     {isOverCard && (
                         <motion.div
-                            initial={{ opacity: 0, rotate: 45 }}
+                            initial={{ opacity: 0, rotate: 180 }}
                             animate={{ opacity: 1, rotate: -45 }}
                             transition={{
                                 duration: 0.2,
