@@ -1,36 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FaHome, FaThLarge, FaUsers, FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-  return (
-    <div className="fixed z-10 bottom-5 w-full flex justify-center">
-      <div className="flex items-center bg-opacity-80 bg-[#FEF5FF] rounded-full shadow-lg">
-        <div className="mx-5 mr-2 text-black text-lg">ZyrixCraft</div>
-        <div className="flex items-center bg-opacity-80 bg-[#f5e3f7] border border-black/50 rounded-full p-2 shadow-lg">
-            <div className="mx-3 text-black text-2xl hover:text-yellow-500 transition duration-300">
-                <a href="/" aria-label="Home">
-                    <FaHome />
-                </a>
+    const [activeTab, setActiveTab] = useState("home");
+
+    const navItems = [
+        { id: "home", icon: FaHome, label: "Home" },
+        { id: "features", icon: FaThLarge, label: "Features" },
+        { id: "team", icon: FaUsers, label: "Team" },
+        { id: "profile", icon: FaUserCircle, label: "Profile" }
+    ];
+
+    return (
+        <>
+            {/* Desktop Navbar */}
+            <div className="fixed z-80 top-10 w-full flex justify-center hidden md:flex">
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="flex items-center justify-between bg-black/40 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg shadow-black/50 px-6 py-3"
+                >
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="text-white/90 font-medium mr-20 text-lg tracking-wide"
+                    >
+                        ZyrixCraft
+                    </motion.div>
+                    <div className="flex items-center space-x-2">
+                        {navItems.map((item) => (
+                            <motion.button
+                                key={item.id}
+                                onClick={() => setActiveTab(item.id)}
+                                className="relative flex items-center justify-center p-3 rounded-xl transition-all duration-300 backdrop-blur-xl cursor-pointer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                {activeTab === item.id && (
+                                    <motion.div
+                                        layoutId="activeTabDesktop"
+                                        className="absolute inset-0 bg-yellow-500/10 rounded-xl"
+                                        initial={false}
+                                    />
+                                )}
+                                <item.icon
+                                    className={`text-xl transition-all duration-300 ${activeTab === item.id
+                                        ? "text-yellow-500"
+                                        : "text-white/70 hover:text-white/90"
+                                        }`}
+                                />
+                                <span
+                                    className={`ml-2 text-sm transition-all duration-300 ${activeTab === item.id
+                                        ? "text-yellow-500 font-medium"
+                                        : "text-white/50 hover:text-white/70"
+                                        }`}
+                                >
+                                    {item.label}
+                                </span>
+                            </motion.button>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
-            <div className="mx-3 text-black text-2xl hover:text-yellow-500 transition duration-300">
-                <a href="/features" aria-label="Features">
-                    <FaThLarge />
-                </a>
+
+            {/* Mobile Bottom Navigation */}
+            <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+                <motion.div
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="bg-black/40 backdrop-blur-xl border-t border-white/10"
+                >
+                    <div className="flex justify-around items-center h-16">
+                        {navItems.map((item) => (
+                            <motion.button
+                                key={item.id}
+                                onClick={() => setActiveTab(item.id)}
+                                className="relative flex flex-col items-center justify-center w-full h-full"
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                {activeTab === item.id && (
+                                    <motion.div
+                                        layoutId="activeTabMobile"
+                                        className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-yellow-500"
+                                        initial={false}
+                                    />
+                                )}
+                                <item.icon
+                                    className={`text-xl transition-all duration-300 ${activeTab === item.id
+                                        ? "text-yellow-500 scale-110"
+                                        : "text-white/70"
+                                        }`}
+                                />
+                                <span
+                                    className={`text-[10px] mt-1 transition-all duration-300 ${activeTab === item.id
+                                        ? "text-yellow-500 font-medium"
+                                        : "text-white/50"
+                                        }`}
+                                >
+                                    {item.label}
+                                </span>
+                            </motion.button>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
-            <div className="mx-3 text-black text-2xl hover:text-yellow-500 transition duration-300">
-                <a href="/team" aria-label="Team">
-                    <FaUsers />
-                </a>
-            </div>
-            <div className="mx-3 text-blac text-2xl hover:text-yellow-500 transition duration-300">
-                <a href="/profile" aria-label="Profile">
-                    <FaUserCircle />
-                </a>
-            </div>
-        </div>
-      </div>
-    </div>
-  );
+        </>
+    );
 };
 
 export default Navbar;
