@@ -220,7 +220,7 @@ const Services = () => {
                   boxShadow: [
                     `0 0 20px rgba(147, 51, 234, 0.3)`,
                     `0 0 40px rgba(147, 51, 234, 0.2)`,
-                    `0 0 20px rgba(147, 51, 234, 0.3)`
+                    `0 0 20px rgba(147, 51, 234, 0.3)`,
                   ]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
