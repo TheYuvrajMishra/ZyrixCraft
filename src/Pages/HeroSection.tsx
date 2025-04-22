@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-purple-900/20 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-amber-500/20 to-black" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
@@ -61,7 +61,7 @@ const HeroSection = () => {
           initial={{ x: "-100%" }}
           animate={{ x: "100%" }}
           transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 h-[1px] w-full bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"
+          className="absolute top-1/4 h-[1px] w-full bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"
         />
         <motion.div
           initial={{ x: "100%" }}
@@ -76,7 +76,7 @@ const HeroSection = () => {
         initial={{ y: 100, x: -100, opacity: 0 }}
         animate={{ y: 0, x: 0, opacity: 0.3 }}
         transition={{ duration: 1.5, delay: 0.2 }}
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl"
       />
       <motion.div
         initial={{ y: -100, x: 100, opacity: 0 }}
@@ -109,7 +109,7 @@ const HeroSection = () => {
       ))}
 
       {/* Glowing Orbs */}
-      {[...Array(3)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <motion.div
           key={`orb-${i}`}
           initial={{ opacity: 0 }}
@@ -144,7 +144,7 @@ const HeroSection = () => {
               className="absolute inset-0 rounded-lg blur-xl"
             />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 relative">
-              Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">ZyrixCraft</span>
+              Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-pink-600">ZyrixCraft</span>
             </h1>
           </motion.div>
 
@@ -166,10 +166,10 @@ const HeroSection = () => {
             <motion.button
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)"
+                boxShadow: "0 0 20px rgb(255, 224, 130,0.2)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium shadow-lg shadow-purple-500/20 relative overflow-hidden group"
+              className="px-8 py-3 bg-gradient-to-r cursor-pointer from-amber-600 to-pink-600 text-white rounded-full font-medium shadow-lg shadow-amber-500/20 relative overflow-hidden group"
             >
               <motion.div
                 initial={{ x: "-100%" }}
@@ -185,7 +185,7 @@ const HeroSection = () => {
                 boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full font-medium border border-white/20 relative overflow-hidden group"
+              className="px-8 py-3 bg-white/10 backdrop-blur-sm cursor-pointer text-white rounded-full font-medium border border-white/20 relative overflow-hidden group"
             >
               <motion.div
                 initial={{ x: "-100%" }}
@@ -214,7 +214,7 @@ const HeroSection = () => {
                 key={index}
                 whileHover={{
                   y: -5,
-                  boxShadow: "0 0 20px rgba(147, 51, 234, 0.3)"
+                  boxShadow: "0 0px 20px rgb(255, 224, 130, 0.2)"
                 }}
                 className="text-center cursor-pointer p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
               >

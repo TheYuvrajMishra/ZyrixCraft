@@ -29,7 +29,7 @@ const Services = () => {
       imageUrl: "https://cdn.dribbble.com/users/9362665/screenshots/17416927/6000183_4x.png",
       tags: ["Figma", "Adobe XD", "Prototyping"],
       icon: FaPalette,
-      color: "from-purple-500 to-pink-500"
+      color: "from-amber-500 to-pink-500"
     },
     {
       title: "Mobile Development",
@@ -91,7 +91,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 relative overflow-hidden">
       {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-purple-900/20 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-amber-900/20 to-black/80" />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
@@ -109,7 +109,7 @@ const Services = () => {
         {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-purple-500/20 rounded-full"
+            className="absolute w-1 h-1 bg-amber-500/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -140,7 +140,7 @@ const Services = () => {
           repeat: Infinity,
           repeatType: "reverse"
         }}
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl"
       />
       <motion.div
         initial={{ y: -100, x: 100, opacity: 0 }}

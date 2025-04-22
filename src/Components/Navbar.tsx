@@ -23,7 +23,7 @@ const Navbar = () => {
                     className="relative flex items-center justify-between rounded-2xl px-6 py-1 overflow-hidden"
                 >
                     {/* Background layers */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-purple-950/75 to-black/90" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-amber-950/75 to-black/90" />
                     <div className="absolute inset-0 backdrop-blur-md" />
                     <div className="absolute inset-0 bg-white/5" />
                     <div className="absolute inset-0 border border-white/10 rounded-2xl" />

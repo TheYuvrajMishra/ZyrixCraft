@@ -22,7 +22,7 @@ const Contact = () => {
     return (
         <section id="contact" className="py-20 relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-purple-900/20 to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-amber-900/20 to-black/80" />
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.5 }}
@@ -35,7 +35,7 @@ const Contact = () => {
                 initial={{ y: 100, x: -100, opacity: 0 }}
                 animate={{ y: 0, x: 0, opacity: 0.3 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
+                className="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl"
             />
             <motion.div
                 initial={{ y: -100, x: 100, opacity: 0 }}
@@ -49,7 +49,7 @@ const Contact = () => {
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/3 h-px w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-30"
+                className="absolute top-1/3 h-px w-full bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-30"
             />
             <motion.div
                 initial={{ x: "100%" }}
@@ -78,9 +78,9 @@ const Contact = () => {
                             <motion.div
                                 animate={{
                                     boxShadow: [
-                                        "0 0 20px rgba(147, 51, 234, 0.5)",
-                                        "0 0 40px rgba(147, 51, 234, 0.3)",
-                                        "0 0 20px rgba(147, 51, 234, 0.5)"
+                                        "0 0 20px rgba(255, 224, 130, 0.5)",
+                                        "0 0 40px rgb(255, 224, 130,0.3)",
+                                        "0 0 20px rgba(255, 224, 130, 0.5)"
                                     ]
                                 }}
                                 transition={{ duration: 2, repeat: Infinity }}
@@ -123,7 +123,7 @@ const Contact = () => {
                                             name="name"
                                             value={formData.name}
                                             onChange={handleChange}
-                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors"
                                             placeholder="Your name"
                                             required
                                         />
@@ -139,7 +139,7 @@ const Contact = () => {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors"
                                             placeholder="Your email"
                                             required
                                         />
@@ -156,7 +156,7 @@ const Contact = () => {
                                         name="subject"
                                         value={formData.subject}
                                         onChange={handleChange}
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors"
                                         placeholder="Subject"
                                         required
                                     />
@@ -172,7 +172,7 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         rows={4}
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
                                         placeholder="Your message"
                                         required
                                     />
@@ -184,7 +184,7 @@ const Contact = () => {
                                     }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="group relative w-full overflow-hidden bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
+                                    className="group relative w-full cursor-pointer overflow-hidden bg-gradient-to-r from-amber-600 to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300"
                                 >
                                     {/* Animated gradient overlay */}
                                     <motion.div
@@ -195,11 +195,11 @@ const Contact = () => {
                                     />
 
                                     {/* Button content */}
-                                    <span className="relative flex items-center justify-center gap-2">
+                                    <span className="relative cursor-pointer flex items-center justify-center gap-2">
                                         Send Message
                                         <motion.span
                                             initial={{ x: 0 }}
-                                            whileHover={{ x: 5 }}
+                                            whileHover={{ x: 1 }}
                                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                         >
                                             →
@@ -232,21 +232,21 @@ const Contact = () => {
                                         whileHover={{ x: 5 }}
                                         className="flex items-center space-x-3 text-white/80"
                                     >
-                                        <FaEnvelope className="text-purple-500 text-xl" />
+                                        <FaEnvelope className="text-amber-500 text-xl" />
                                         <span>contact@example.com</span>
                                     </motion.div>
                                     <motion.div
                                         whileHover={{ x: 5 }}
                                         className="flex items-center space-x-3 text-white/80"
                                     >
-                                        <FaPhone className="text-purple-500 text-xl" />
+                                        <FaPhone className="text-amber-500 text-xl" />
                                         <span>+1 234 567 890</span>
                                     </motion.div>
                                     <motion.div
                                         whileHover={{ x: 5 }}
                                         className="flex items-center space-x-3 text-white/80"
                                     >
-                                        <FaMapMarkerAlt className="text-purple-500 text-xl" />
+                                        <FaMapMarkerAlt className="text-amber-500 text-xl" />
                                         <span>123 Street, City, Country</span>
                                     </motion.div>
                                 </div>
@@ -265,21 +265,21 @@ const Contact = () => {
                                     <motion.a
                                         whileHover={{ y: -5, color: "#8B5CF6" }}
                                         href="#"
-                                        className="text-white/80 text-2xl hover:text-purple-500 transition-colors"
+                                        className="text-white/80 text-2xl hover:text-amber-500 transition-colors"
                                     >
                                         <FaGithub />
                                     </motion.a>
                                     <motion.a
                                         whileHover={{ y: -5, color: "#8B5CF6" }}
                                         href="#"
-                                        className="text-white/80 text-2xl hover:text-purple-500 transition-colors"
+                                        className="text-white/80 text-2xl hover:text-amber-500 transition-colors"
                                     >
                                         <FaLinkedin />
                                     </motion.a>
                                     <motion.a
                                         whileHover={{ y: -5, color: "#8B5CF6" }}
                                         href="#"
-                                        className="text-white/80 text-2xl hover:text-purple-500 transition-colors"
+                                        className="text-white/80 text-2xl hover:text-amber-500 transition-colors"
                                     >
                                         <FaTwitter />
                                     </motion.a>
