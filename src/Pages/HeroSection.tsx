@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
+import RotatingText from "../Components/RotatingText";
 const HeroSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -21,35 +21,37 @@ const HeroSection = () => {
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
               rotate: Math.random() * 360,
-              scale: 0
+              scale: 0,
             }}
             animate={{
               x: [
                 Math.random() * window.innerWidth,
                 Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth
+                Math.random() * window.innerWidth,
               ],
               y: [
                 Math.random() * window.innerHeight,
                 Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight
+                Math.random() * window.innerHeight,
               ],
               rotate: [0, 180, 360],
-              scale: [0, 0.5, 0]
+              scale: [0, 0.5, 0],
             }}
             transition={{
               duration: Math.random() * 5 + 5,
               repeat: Infinity,
               ease: "linear",
-              times: [0, 0.5, 1]
+              times: [0, 0.5, 1],
             }}
             className="absolute w-0 h-0"
             style={{
-              borderLeft: '20px solid transparent',
-              borderRight: '20px solid transparent',
-              borderBottom: '40px solid',
-              borderBottomColor: `rgba(${Math.random() * 255}, ${Math.random() * 100}, ${Math.random() * 255}, 0.2)`,
-              filter: 'blur(1px)',
+              borderLeft: "20px solid transparent",
+              borderRight: "20px solid transparent",
+              borderBottom: "40px solid",
+              borderBottomColor: `rgba(${Math.random() * 255}, ${
+                Math.random() * 100
+              }, ${Math.random() * 255}, 0.2)`,
+              filter: "blur(1px)",
             }}
           />
         ))}
@@ -92,17 +94,17 @@ const HeroSection = () => {
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
-            scale: 0
+            scale: 0,
           }}
           animate={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
-            scale: [0, 1, 0]
+            scale: [0, 1, 0],
           }}
           transition={{
             duration: Math.random() * 3 + 2,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute w-1 h-1 bg-white/30 rounded-full"
         />
@@ -137,14 +139,17 @@ const HeroSection = () => {
                 boxShadow: [
                   "0 0 20px rgba(147, 51, 234, 0.5)",
                   "0 0 40px rgba(147, 51, 234, 0.3)",
-                  "0 0 20px rgba(147, 51, 234, 0.5)"
-                ]
+                  "0 0 20px rgba(147, 51, 234, 0.5)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="absolute inset-0 rounded-lg blur-xl"
             />
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 relative">
-              Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-pink-600">ZyrixCraft</span>
+              Welcome to{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-pink-600">
+                ZyrixCraft
+              </span>
             </h1>
           </motion.div>
 
@@ -152,24 +157,42 @@ const HeroSection = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-white/80 mb-8"
+            className="text-base sm:text-lg text-white/80 mb-4 sm:mb-6 whitespace-normal text-center w-full px-4"
           >
-            We create digital experiences that inspire and innovate
+            We create{" "}
+            <RotatingText
+              texts={[
+                "Websites",
+                "UI/UX Designs",
+                "Graphic Designs",
+                "Digital Experiences",
+              ]}
+              mainClassName="px-2 sm:px-3 bg-amber-200/10 ml-1 sm:ml-2 border border-white/20 text-white overflow-hidden py-1 justify-center rounded-md inline-flex shadow-md"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />{" "}
+            that inspire and innovate
           </motion.p>
 
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center mt-10 gap-3 sm:gap-4 w-full px-4"
           >
             <motion.button
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 20px rgb(255, 224, 130,0.2)"
+                boxShadow: "0 0 20px rgba(255, 224, 130, 0.2)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-to-r cursor-pointer from-amber-600 to-pink-600 text-white rounded-full font-medium shadow-lg shadow-amber-500/20 relative overflow-hidden group"
+              className="px-5 py-2 sm:px-8 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-amber-600 to-pink-600 text-white rounded-full font-medium shadow-md shadow-amber-500/20 relative overflow-hidden group w-full sm:w-auto"
             >
               <motion.div
                 initial={{ x: "-100%" }}
@@ -179,13 +202,14 @@ const HeroSection = () => {
               />
               Get Started
             </motion.button>
+
             <motion.button
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
+                boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white/10 backdrop-blur-sm cursor-pointer text-white rounded-full font-medium border border-white/20 relative overflow-hidden group"
+              className="px-5 py-2 sm:px-8 sm:py-3 text-sm sm:text-base bg-white/10 backdrop-blur-sm text-white rounded-full font-medium border border-white/20 relative overflow-hidden group w-full sm:w-auto"
             >
               <motion.div
                 initial={{ x: "-100%" }}
@@ -208,13 +232,13 @@ const HeroSection = () => {
               { number: "100+", label: "Projects" },
               { number: "50+", label: "Clients" },
               { number: "5+", label: "Years" },
-              { number: "24/7", label: "Support" }
+              { number: "24/7", label: "Support" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 whileHover={{
                   y: -5,
-                  boxShadow: "0 0px 20px rgb(255, 224, 130, 0.2)"
+                  boxShadow: "0 0px 20px rgb(255, 224, 130, 0.2)",
                 }}
                 className="text-center cursor-pointer p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10"
               >
@@ -225,7 +249,7 @@ const HeroSection = () => {
                     type: "spring",
                     stiffness: 200,
                     damping: 15,
-                    delay: 0.8 + (index * 0.1)
+                    delay: 0.8 + index * 0.1,
                   }}
                   className="text-3xl font-bold text-white mb-2"
                 >
@@ -260,8 +284,8 @@ const HeroSection = () => {
               boxShadow: [
                 "0 0 10px rgba(255, 255, 255, 0.5)",
                 "0 0 20px rgba(255, 255, 255, 0.3)",
-                "0 0 10px rgba(255, 255, 255, 0.5)"
-              ]
+                "0 0 10px rgba(255, 255, 255, 0.5)",
+              ],
             }}
             transition={{ duration: 2, repeat: Infinity }}
             className="absolute inset-0 rounded-full blur-sm"
